@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{static/css/style.css}">
+    <title>Convertitore Temperature</title>
+</head>
+<body>
+<div class="container">
+    <h2>Convertitore di Temperatura</h2>
+
+    <div class="termometri-group">
+        <div th:each="i : ${#numbers.sequence(0, 9)}" class="termometro-container">
+            <div class="termometro-vetro">
+                <div class="liquido"
+                     th:style="'height:' + (${celsius >= (i+1)*10} ? '100%' : (${celsius > i*10} ? (${(celsius % 10) * 10} + '%') : '0%'))">
+                </div>
+            </div>
+            <span th:text="${i * 10}"></span>
+        </div>
+    </div>
+
+    <div class="risultati">
+        <div class="box">
+            <span class="label">Fahrenheit: </span>
+            <span class="valore" th:text="${fahrenheit} + '°F'"></span>
+        </div>
+        <div class="box">
+            <span class="label">Kelvin: </span>
+            <span class="valore" th:text="${kelvin} + ' K'"></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
