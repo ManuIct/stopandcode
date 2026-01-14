@@ -2,7 +2,7 @@
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{static/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>Convertitore Temperature</title>
 </head>
 <body>
@@ -31,6 +31,8 @@
         </div>
     </div>
 </div>
-
+<div th:if="${errore}" style="background-color: #ff4d4d; color: white; padding: 15px; border-radius: 8px; margin: 20px; text-align: center; font-weight: bold;">
+    <p th:text="${errore}"></p>
+</div>
 </body>
 </html>
